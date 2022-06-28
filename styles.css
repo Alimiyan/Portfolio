@@ -1,5 +1,11 @@
-.d-img{
-    height: 400px;
-    padding: 20px;
-    border-radius: 50px;
+.d-img {
+  height: 350px;
+  padding: 20px;
+  border-radius: 50px;
+}
+.frm {
+  padding: 40px;
+}
+.ftr {
+    margin-left: 10px;
 }
