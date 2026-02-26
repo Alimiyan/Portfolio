@@ -418,14 +418,14 @@ function Hero({ theme }: { theme: typeof THEMES.dark }) {
         </div>
 
         {/* Name */}
-        <div style={{ overflow:"hidden", width:"100%" }}>
+        <div style={{ width:"100%", overflow:"visible" }}>
           <h1 style={{ ...anim(0.18), fontFamily:"'Syne',sans-serif", fontWeight:800,
             fontSize:"clamp(3rem, 10vw, 6.5rem)", lineHeight:0.88, color:theme.text,
             letterSpacing:"-0.03em", display:"block", wordBreak:"break-word" }}>
             {first.toUpperCase()}
           </h1>
         </div>
-        <div style={{ overflow:"hidden", marginBottom:"2.5rem", width:"100%" }}>
+        <div style={{ marginBottom:"2.5rem", width:"100%", overflow:"visible" }}>
           <div ref={skewRef} style={{ ...anim(0.28), transition:`transform 0.1s ease, opacity 1s ease 0.28s, transform 1.1s cubic-bezier(0.16,1,0.3,1) 0.28s` }}>
             <h1 style={{ fontFamily:"'Syne',sans-serif", fontWeight:800,
               fontSize:"clamp(3rem, 10vw, 6.5rem)", lineHeight:0.88, letterSpacing:"-0.03em",
