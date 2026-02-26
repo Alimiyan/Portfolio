@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "name": "Alimiyan Shukkoor",
+    "initials": "AS",
+    "title": "Software Engineer",
+    "subtitle": "Full-Stack & Cloud-Native Engineer",
+    "tagline": "Building scalable systems at the intersection of cloud infrastructure, real-time APIs, and AI automation — currently at EY GDS, Kochi.",
+    "location": "Kochi, India",
+    "email": "alimiyan123@gmail.com",
+    "phone": "+91 9744327192",
+    "github": "https://github.com/alimiyan",
+    "linkedin": "https://linkedin.com/in/alimiyan"
+  },
+  "about": {
+    "statement": "I engineer systems that scale, stream, and think.",
+    "highlightWords": ["scale,", "stream,", "think."],
+    "bio": "Software Engineer at EY GDS with 2+ years building production-grade full-stack and cloud-native applications. I specialize in FastAPI microservices, React frontends, Azure infrastructure, and AI-driven automation — writing code that ships, scales, and makes real impact.",
+    "stats": [
+      { "value": "2+",   "label": "Years Experience" },
+      { "value": "60+",  "label": "API Endpoints Built" },
+      { "value": "600+", "label": "Employees Served" },
+      { "value": "40%",  "label": "Manual Effort Reduced" }
+    ]
+  },
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "company": "EY GDS",
+      "period": "May 2024 — Present",
+      "location": "Kochi, India",
+      "color": "#c8ff00",
+      "bullets": [
+        "Owned end-to-end full-stack features using FastAPI, React, PostgreSQL, and MS SQL Server for enterprise cloud migration initiatives.",
+        "Architected RESTful APIs and real-time layers via WebSockets and SSE — delivering live data streaming with sub-second latency.",
+        "Spearheaded AI automation with Semantic Kernel and Microsoft Agent Framework, reducing manual cloud analysis effort by ~40%.",
+        "Designed API contracts with FastAPI + Pydantic, eliminating integration errors across multiple microservices.",
+        "Automated CI/CD with GitHub Actions and Azure DevOps, measurably improving deployment speed.",
+        "Led technical code reviews in Agile sprints, maintaining high quality across the team."
+      ]
+    },
+    {
+      "role": "Software Development Engineer",
+      "company": "Oxmics",
+      "period": "November 2023 — April 2024",
+      "location": "Kochi, India",
+      "color": "#ff3c3c",
+      "bullets": [
+        "Developed core bidding platform using React.js and Django, increasing component reusability by ~40%.",
+        "Built and maintained Django REST APIs + React components in Docker, integrated with PostgreSQL.",
+        "Managed AWS deployments and database migrations during release cycles, minimizing downtime."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "number": "01",
+      "accent": "#c8ff00",
+      "title": "AI-Driven Cloud Migration Platform",
+      "description": "An AI-powered platform automating cloud resource analysis and generating migration recommendations — cutting manual assessment effort across enterprise clients.",
+      "tech": ["FastAPI", "React", "Semantic Kernel", "OpenAI", "WebSockets", "SSE", "Cosmos DB", "MS SQL", "Azure", "Terraform"],
+      "highlights": [
+        "Multi-agent orchestration with Microsoft Agent Framework",
+        "Real-time streaming via WebSockets + SSE",
+        "Hybrid data layer: MS SQL Server + Cosmos DB"
+      ]
+    },
+    {
+      "number": "02",
+      "accent": "#ff3c3c",
+      "title": "Employee Expertise & Management Platform",
+      "description": "Comprehensive talent management system for 600+ employees — skill tracking, certification management, and manager-facing expertise search across 60+ API endpoints.",
+      "tech": ["React", "FastAPI", "PostgreSQL", "Pydantic", "SQLAlchemy", "Alembic", "Azure App Services", "Key Vault", "Terraform"],
+      "highlights": [
+        "Role-based access control + strict Pydantic validation",
+        "Azure Blob Storage + Key Vault integration",
+        "PostgreSQL indexing for optimized search performance"
+      ]
+    }
+  ],
+  "skills": [
+    { "category": "Backend",        "color": "#c8ff00", "items": ["FastAPI", "Django", "Flask", "REST APIs", "WebSockets", "SSE", "Microservices", "Pydantic"] },
+    { "category": "Frontend",       "color": "#c8ff00", "items": ["React.js", "TypeScript", "JavaScript", "Tailwind CSS", "Zustand", "Vite", "shadcn/ui", "Ant Design"] },
+    { "category": "Cloud & DevOps", "color": "#ff3c3c", "items": ["Azure App Services", "Azure Container Registry", "Azure DevOps", "Docker", "Terraform", "GitHub Actions", "AWS S3/EC2"] },
+    { "category": "Databases",      "color": "#ff3c3c", "items": ["PostgreSQL", "MySQL", "MS SQL Server", "Cosmos DB", "SQLAlchemy", "Alembic"] },
+    { "category": "AI & Automation","color": "#c8ff00", "items": ["Semantic Kernel", "Microsoft Agent Framework", "OpenAI APIs", "Multi-Agent Orchestration"] },
+    { "category": "Languages",      "color": "#ff3c3c", "items": ["Python", "JavaScript", "TypeScript", "Java"] }
+  ],
+  "certifications": [
+    "AZ-400: DevOps Engineer Expert",
+    "AZ-104: Azure Administrator",
+    "HashiCorp Terraform Associate",
+    "GCP Associate Cloud Engineer",
+    "AI-900: Azure AI Fundamentals"
+  ],
+  "awards": [
+    {
+      "icon": "🏆",
+      "title": "EY Impact Award",
+      "org": "Ernst & Young GDS",
+      "description": "Recognized for delivering high-impact contributions to enterprise cloud migration programs, driving measurable improvements in automation and efficiency."
+    },
+    {
+      "icon": "⚡",
+      "title": "EY Achiever Extraordinaire Award",
+      "org": "Ernst & Young GDS × 3",
+      "description": "Honored three consecutive times for exceptional ownership, innovation, and successful execution of AI-driven automation initiatives."
+    }
+  ],
+  "nav": [
+    { "label": "About",      "href": "#about" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Projects",   "href": "#projects" },
+    { "label": "Skills",     "href": "#skills" },
+    { "label": "Contact",    "href": "#contact" }
+  ]
+}

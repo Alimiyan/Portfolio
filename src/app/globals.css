@@ -1,26 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; cursor:none !important; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+::-webkit-scrollbar { width: 8px; background: transparent; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(232, 255, 71, 0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(232, 255, 71, 0.5); }
+
+@keyframes fadeSlide {
+  from { opacity:0; transform:translateY(8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes bob {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50%      { transform:translateX(-50%) translateY(8px); }
+}
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes grain {
+  0%  { transform:translate(0,0); }
+  33% { transform:translate(-2px,1px); }
+  66% { transform:translate(1px,-2px); }
+  100%{ transform:translate(-1px,1px); }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Film grain overlay */
+body::before {
+  content:''; position:fixed; inset:0; z-index:9990; pointer-events:none;
+  opacity:0.022;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;
+  animation:grain 0.4s steps(3) infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Responsive grid helper */
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .about-stats-grid { grid-template-columns: 1fr 1fr !important; gap: 2px !important; }
+  .awards-grid { grid-template-columns: 1fr !important; gap: 2px !important; }
+  .about-contact-grid { grid-template-columns: 1fr !important; }
+  .hide-mobile { display: none !important; }
+  .pad-section { padding: 6rem 1.25rem !important; }
 }
