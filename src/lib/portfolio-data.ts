@@ -54,6 +54,12 @@ export const PORTFOLIO_DATA = {
       tech: ["React.js", "FastAPI", "PostgreSQL", "Pydantic", "SQLAlchemy", "Alembic", "Azure App Services", "Azure Blob Storage", "Key Vault", "Terraform"],
       highlights: ["60+ API endpoints with Pydantic validation", "Role-based access control", "Advanced skill search & project-tracking", "Azure Blob Storage & Key Vault integration"],
     },
+    {
+      number: "03", title: "Mindly.io — AI Mental Health Companion",
+      description: "Built a full-stack mental health companion web app leveraging Google Generative AI (Gemini) with advanced agentic architecture. Features real-time streaming chat, mood tracking, guided breathing exercises, conversation history with session persistence, and intelligent crisis detection using LangGraph state machines.",
+      tech: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Radix UI", "FastAPI", "Python", "Google Generative AI", "LangGraph", "Server-Sent Events/SSE", "CORS Middleware", "Session Management"],
+      highlights: ["LangGraph state machine agent with intent classification & crisis detection", "Real-time streaming responses via Server-Sent Events (SSE)", "Conversation memory management (10-turn context window)", "Multi-node agent graph: classify → respond/crisis → END", "Mood tracker with 1-10 scale & sentiment-aware emoji", "4-7-8 breathing technique with cycle tracking", "Streak system with consecutive day tracking", "Dark/Light theme persistence with localStorage", "Responsive design with touch-optimized UI", "Session-based user context via UUID"],
+    },
   ],
   skills: [
     { category: "Backend",   level: 92, items: ["FastAPI", "Django", "Flask", "REST APIs", "WebSockets", "SSE", "Pydantic", "Microservices"] },
