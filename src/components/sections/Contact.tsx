@@ -8,27 +8,63 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
   const [focused, setFocused] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    await new Promise((r) => setTimeout(r, 1600));
-    setSending(false);
-    setSent(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send email");
+      }
+
+      setSent(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      // Reset sent message after 5 seconds
+      setTimeout(() => setSent(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setSending(false);
+    }
   };
 
   const fieldStyle = (name: string): React.CSSProperties => ({
     width: "100%",
     padding: "0.9rem 1.1rem",
-    background:
-      focused === name ? `rgba(${theme.accentRgb},0.04)` : theme.bg,
+    background: focused === name ? `rgba(${theme.accentRgb},0.04)` : theme.bg,
     border: `1px solid ${focused === name ? theme.accent : theme.border}`,
     color: theme.text,
     fontFamily: "'JetBrains Mono',monospace",
     fontSize: "0.8rem",
     outline: "none",
     transition: "all 0.3s ease",
-    boxShadow: focused === name ? `0 0 0 3px rgba(${theme.accentRgb},0.08)` : "none",
+    boxShadow:
+      focused === name ? `0 0 0 3px rgba(${theme.accentRgb},0.08)` : "none",
   });
 
   return (
@@ -98,7 +134,8 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
                 marginBottom: "1.5rem",
               }}
             >
-              LET&apos;S<br />
+              LET&apos;S
+              <br />
               <span
                 style={{
                   WebkitTextStroke: `1.5px ${theme.accent}`,
@@ -266,7 +303,28 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
                   border: `1px solid ${theme.border}`,
                 }}
               >
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+                {error && (
+                  <div
+                    style={{
+                      padding: "0.75rem",
+                      background: `rgba(255, 59, 48, 0.1)`,
+                      border: `1px solid rgba(255, 59, 48, 0.3)`,
+                      color: "#ff3b30",
+                      borderRadius: "4px",
+                      fontFamily: "'JetBrains Mono',monospace",
+                      fontSize: "0.7rem",
+                    }}
+                  >
+                    {error}
+                  </div>
+                )}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "0.75rem",
+                  }}
+                >
                   {["Name", "Email"].map((f) => (
                     <div key={f}>
                       <label
@@ -284,7 +342,12 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
                       </label>
                       <input
                         required
+                        name={f.toLowerCase()}
                         type={f === "Email" ? "email" : "text"}
+                        value={
+                          formData[f.toLowerCase() as keyof typeof formData]
+                        }
+                        onChange={handleChange}
                         style={fieldStyle(f)}
                         onFocus={() => setFocused(f)}
                         onBlur={() => setFocused(null)}
@@ -310,7 +373,12 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
                     {f === "Message" ? (
                       <textarea
                         required
+                        name={f.toLowerCase()}
                         rows={5}
+                        value={
+                          formData[f.toLowerCase() as keyof typeof formData]
+                        }
+                        onChange={handleChange}
                         style={{
                           ...fieldStyle(f),
                           resize: "none",
@@ -321,6 +389,11 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
                     ) : (
                       <input
                         required
+                        name={f.toLowerCase()}
+                        value={
+                          formData[f.toLowerCase() as keyof typeof formData]
+                        }
+                        onChange={handleChange}
                         style={fieldStyle(f)}
                         onFocus={() => setFocused(f)}
                         onBlur={() => setFocused(null)}
@@ -328,7 +401,7 @@ export function Contact({ theme }: { theme: typeof THEMES.dark }) {
                     )}
                   </div>
                 ))}
-                <MagBtn theme={theme} filled onClick={() => {}}>
+                <MagBtn theme={theme} filled type="submit" disabled={sending}>
                   {sending ? "Sending..." : "Send Message →"}
                 </MagBtn>
               </form>
