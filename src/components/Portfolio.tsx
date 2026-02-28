@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Cursor } from "./Cursor";
 import { THEMES, type ThemeKey } from "@/lib/theme-context";
 import { generatePersonSchema, generateProjectSchema, generateBreadcrumbSchema } from "@/lib/structured-data";
@@ -12,21 +12,9 @@ import { Awards } from "./sections/Awards";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
 import { Nav } from "./sections/Nav";
-import { Terminal } from "./sections/Terminal";
 
 export function Portfolio() {
   const [themeKey, setThemeKey] = useState<ThemeKey>("dark");
-  const [terminal, setTerminal] = useState(false);
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key.toLowerCase() === "t" && !terminal) setTerminal(true);
-      if (e.key === "Escape" && terminal) setTerminal(false);
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [terminal]);
 
   const theme = THEMES[themeKey];
 
@@ -88,9 +76,6 @@ export function Portfolio() {
       <Awards theme={theme} />
       <Contact theme={theme} />
       <Footer theme={theme} />
-
-      {/* Terminal modal */}
-      {terminal && <Terminal theme={theme} onClose={() => setTerminal(false)} />}
 
       {/* Theme indicator */}
       <div
