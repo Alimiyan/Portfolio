@@ -37,26 +37,6 @@ export function Footer({ theme }: { theme: typeof THEMES.dark }) {
         <p
           style={{
             fontFamily: "'JetBrains Mono',monospace",
-            fontSize: "clamp(0.5rem, 1.2vw, 0.58rem)",
-            color: `rgba(${theme.accentRgb},0.3)`,
-          }}
-        >
-          Press{" "}
-          <kbd
-            style={{
-              border: `1px solid rgba(${theme.accentRgb},0.2)`,
-              padding: "0.1rem 0.35rem",
-              fontSize: "0.5rem",
-              borderRadius: 2,
-            }}
-          >
-            T
-          </kbd>{" "}
-          for terminal
-        </p>
-        <p
-          style={{
-            fontFamily: "'JetBrains Mono',monospace",
             fontSize: "0.58rem",
             color: theme.muted,
             opacity: 0.35,
